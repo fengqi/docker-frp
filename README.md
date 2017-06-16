@@ -32,3 +32,8 @@ docker run --restart \
 
 运行后会自动在 `/docker-frp` 下生成 frpc.ini 和 log 文件.
 如需调整配置, 可以修改 `/docker-frp/frpc.ini` 然后重启容器.
+
+## 提示
+
+如果频繁构建导致 github 提示 api 请求限制, 请设置 `DOCKER_FRP_BUILD_TOKEN`,
+方法: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
