@@ -5,7 +5,7 @@ COPY frp/frps_full.ini /etc/frps.ini
 COPY run.server.sh /usr/local/bin/run.sh
 
 RUN sed -i 's/^log_file .*/log_file\ =\ \/data\/frps.log/' /etc/frps.ini && \
-    sed -i 's/^privilege_allow_ports .*/privilege_allow_ports\ =\ 10000-50000/' /etc/frps.ini && \
+    sed -i 's/^privilege_allow_ports .*/privilege_allow_ports\ =\ 17100-17200/' /etc/frps.ini && \
     chmod +x /usr/local/bin/frps && \
     chmod +x /usr/local/bin/run.sh && \
     mkdir /data/
