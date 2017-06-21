@@ -1,6 +1,6 @@
-# -*- coding:utf-8 -*-
-
 # !/usr/bin/env python
+
+# -*- coding:utf-8 -*-
 
 import urllib2
 import json
@@ -28,19 +28,19 @@ def docker_build(file_name):
     os.rename(target, "frp")
     tag = target.split('_')
 
-    cmd = 'docker build -f Dockerfile.server -t fengqi/frp-server:' + tag[1] + ' -t fengqi/frp-server:latest .'
+    cmd = 'docker build -f Dockerfile.server -t lyf362345/frp-server:' + tag[1] + ' -t lyf362345/frp-server:latest .'
     code = subprocess.call(cmd, shell=True, stdout=subprocess.PIPE)
     if code == 0:
         print 'server image build done'
 
-    cmd = 'docker build -f Dockerfile.client -t fengqi/frp-client:' + tag[1] + ' -t fengqi/frp-client:latest .'
+    cmd = 'docker build -f Dockerfile.client -t lyf362345/frp-client:' + tag[1] + ' -t lyf362345/frp-client:latest .'
     code = subprocess.call(cmd, shell=True, stdout=subprocess.PIPE)
     if code == 0:
         print 'client image build done'
 
 
 def download(name, url):
-    if not os.path.isfile(name):
+    if not os.path.isfile(name) or os.path.getsize(name) <= 0:
         f = urllib2.urlopen(url)
         with open(name, 'wb') as code:
             code.write(f.read())
