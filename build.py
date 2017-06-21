@@ -53,9 +53,8 @@ def download(name, url):
 def latest_version():
     request = urllib2.Request('https://api.github.com/repos/fatedier/frp/releases')
 
-    token = os.getenv('DOCKER_FRP_BUILD_TOKEN')
-    if not token:
-        request.add_header('Authorization', 'token ' + token)
+    if 'DOCKER_FRP_BUILD_TOKEN' in os.environ:
+        request.add_header('Authorization', 'token ' + os.getenv('DOCKER_FRP_BUILD_TOKEN'))
 
     response = urllib2.urlopen(request)
     data = json.load(response)
